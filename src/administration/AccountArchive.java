@@ -41,12 +41,6 @@ public class AccountArchive {
                 .equals(s))
                 .findAny()
                 .get();
-    /*    for(Account o: this.Accounts){
-            if(o.getName().equals(s)){
-                a = o;
-                break;
-            }
-        }*/
         return a;
     }
     
