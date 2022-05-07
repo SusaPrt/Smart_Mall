@@ -10,8 +10,7 @@ package administration;
  */
 public class Staff{
     
-    public Staff(String n, String s, String t, String p) {
-        
-    }
+    private String name;
+    private int    id;
     
 }

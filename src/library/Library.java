@@ -24,7 +24,7 @@ public class Library {
     public ArrayList<Book> searchBookByTitle(String t){
         ArrayList<Book> books = new ArrayList();
         for(Book b : booksList){
-            if(b.getTitle().contains(t))
+            if(b.getName().contains(t))
                 books.add(b);
         }
         return books;

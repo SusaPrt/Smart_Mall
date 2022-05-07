@@ -4,10 +4,8 @@
  */
 package administration;
 
-/**
- *
- * @author Mars_DB
- */
+//@author Mars_DB & Susanna
+ 
 public class Item{
     private final String name;
     private final double price;
@@ -29,6 +27,13 @@ public class Item{
     
     public int getQuantity(){
         return this.quantity;
+    }
+    
+    public void decreaseQuantity(){
+            this.quantity =- 1;
+    }
+    public void increaseQuantity(){
+        this.quantity =+ 1;
     }
     
     @Override
