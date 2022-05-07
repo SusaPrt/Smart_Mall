@@ -5,6 +5,8 @@
 package library;
 
 //@author Susanna
+
+import administration.Account;
  
 public interface IStaffLibrary {
     
@@ -12,7 +14,7 @@ public interface IStaffLibrary {
     
     public void deleteBook(String t);
 
-    public void createLoan(Book b, Account c);       
+    public void createLoan(Account c, Book b);       
     
     public void deleteLoan(int id);                                             //meglio mappe? chiave: id || valore: loan -> accesso diretto tramite chiave(id) no iterator 
     

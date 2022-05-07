@@ -6,25 +6,19 @@ package library;
 
 // @author Susanna
 
-import administration.Client;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
 public class Library {
     
-    public static int        loanId;                    // mappa loan
     private String              name;      
     private LinkedList<Book>    booksList;
-    protected LinkedList<Book>  borrowedBooks;
-    private LinkedList<Client>  clients;
-
+    //MAPPA
+    
     
     public Library(String n){
-        this.loanId = 0;
         this.name = n;
         this.booksList = new LinkedList();
-        this.borrowedBooks = new LinkedList();
-        this.clients = new LinkedList();
     }
     
     public ArrayList<Book> searchBookByTitle(String t){

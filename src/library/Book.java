@@ -68,11 +68,10 @@ public class Book {
     }
     
     public void decreaseQuantity(){
-        if (this.quantity > 0)
-            this.quantity = this.quantity - 1;
+            this.quantity =- 1;
     }
     public void increaseQuantity(){
-        this.quantity = this.quantity + 1;
+        this.quantity =+ 1;
     }
         
     public boolean CheckAvailability(int book_id){
