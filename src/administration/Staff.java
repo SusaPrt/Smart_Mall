@@ -8,10 +8,10 @@ package administration;
  *
  * @author Susanna
  */
-public class Staff extends Person{
+public class Staff{
     
     public Staff(String n, String s, String t, String p) {
-        super(n, s, t, p);
+        
     }
     
 }
