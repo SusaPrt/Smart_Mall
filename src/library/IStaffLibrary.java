@@ -5,8 +5,6 @@
 package library;
 
 //@author Susanna
-
-import administration.Client;
  
 public interface IStaffLibrary {
     
