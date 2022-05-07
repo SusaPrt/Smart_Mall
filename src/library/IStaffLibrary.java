@@ -12,7 +12,7 @@ public interface IStaffLibrary {
     
     public void deleteBook(String t);
 
-    public void createLoan(Book b, Client c);
+    public void createLoan(Book b, Account c);       
     
     public void deleteLoan(int id);                                             //meglio mappe? chiave: id || valore: loan -> accesso diretto tramite chiave(id) no iterator 
     
