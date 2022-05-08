@@ -65,8 +65,8 @@ public class Menu {
         return w;    
     }
     
-    public void addDish(Dish d){
-        if(d.getKind() == Course.FIRSTS)
+    public void addDish(Dish d){                    //codice identificativo staff che effettua operazioni
+        if(d.getKind() == Course.FIRSTS)            //lista operazioni staff come oggetto da implementare
             this.firsts.add(d);
         else if(d.getKind() == Course.SECONDS)
             this.seconds.add(d);
@@ -74,6 +74,17 @@ public class Menu {
             this.desserts.add(d);
         else
             this.winesAndSoft.add(d);
+    }
+    
+    public void removeDish(Dish d){
+    if(d.getKind() == Course.FIRSTS)
+            this.firsts.remove(d);
+        else if(d.getKind() == Course.SECONDS)
+            this.seconds.remove(d);
+        else if(d.getKind() == Course.DESSERTS)
+            this.desserts.remove(d);
+        else
+            this.winesAndSoft.remove(d);   
     }
     
     @Override
