@@ -9,15 +9,20 @@ package restourant;
  * @author Mars_DB
  */
 public class Restourant {
-    private MenuOfTheDay mD;
+
     private final int totSeats;
     private final int totTables;
     private int freeTables;
+    private MenuOfTheDay mD;
+    private Menu m;
     
-    public Restourant(){
-        this.totSeats       = 200;
-        this.totTables      = 50;
-        this.freeTables     = 50;
+    public Restourant(int tables){
+        this.totTables      = tables;
+        this.freeTables     = tables;
+        this.totSeats       = tables*4;
+        this.m              = new Menu();
+        this.mD             = new MenuOfTheDay(m);
+
     }
     
     public boolean reserveSeat(int n){

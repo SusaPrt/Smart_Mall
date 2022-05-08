@@ -12,12 +12,15 @@ import administration.Item;
  */
 public class Dish extends Item{
 
-    private final kind kind;
-    private enum kind{FIRST, SECOND, DESSERT, WINEANDSOFT};
+    private final Course kind;
     
-    public Dish(String name, double price, int q, kind k) {
+    public Dish(String name, double price, int q, Course k) {
         super(name, price, q);
         this.kind = k;
+    }
+    
+    public Course getKind(){
+        return this.kind;
     }
     
 }

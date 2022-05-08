@@ -17,25 +17,39 @@ public class MenuOfTheDay {
     private final LinkedList lunch;
     private final LinkedList dinner;
     private final Date date;
+    private final Menu menu;
     
-    public MenuOfTheDay(){
+    public MenuOfTheDay(Menu m){
         this.lunch      = new LinkedList<Dish>();
         this.dinner     = new LinkedList<Dish>();
         Calendar c      = Calendar.getInstance();
         this.date       = c.getTime();
-        makeDayOffer();        
+        this.menu = m;       
     }
     
     private void makeDayOffer(){
-        Menu m = new Menu();
+ 
         Random r = new Random();
 
-        this.lunch.add(m.getDish(m.getFirsts(), r.nextInt(m.getFirsts().size())));
-        this.lunch.add(m.getDish(m.getSeconds(), r.nextInt(m.getSeconds().size())));
-        this.lunch.add(m.getDish(m.getDesserts(), r.nextInt(m.getDesserts().size())));
+        this.lunch.add(menu.getDish(menu.getFirsts(), r.nextInt(menu.getFirsts().size())));
+        this.lunch.add(menu.getDish(menu.getSeconds(), r.nextInt(menu.getSeconds().size())));
+        this.lunch.add(menu.getDish(menu.getDesserts(), r.nextInt(menu.getDesserts().size())));
         
-        this.dinner.add(m.getDish(m.getFirsts(), r.nextInt(m.getFirsts().size())));
-        this.dinner.add(m.getDish(m.getSeconds(), r.nextInt(m.getSeconds().size())));
-        this.dinner.add(m.getDish(m.getDesserts(), r.nextInt(m.getDesserts().size())));                
+        this.dinner.add(menu.getDish(menu.getFirsts(), r.nextInt(menu.getFirsts().size())));
+        this.dinner.add(menu.getDish(menu.getSeconds(), r.nextInt(menu.getSeconds().size())));
+        this.dinner.add(menu.getDish(menu.getDesserts(), r.nextInt(menu.getDesserts().size())));                
     }    
+    
+    @Override
+    public String toString(){
+        return "Menu del giorno:\n"
+                +"Pranzo:\n"
+                +"primo:   "+lunch.get(0).toString()
+                +"secondo: "+lunch.get(1).toString()
+                +"dessert: "+lunch.get(2).toString()+"\n"
+                +"Cena:\n"
+                +"primo:   "+dinner.get(0).toString()
+                +"secondo: "+dinner.get(1).toString()
+                +"dessert: "+dinner.get(2).toString()+"\n";
+    }
 }

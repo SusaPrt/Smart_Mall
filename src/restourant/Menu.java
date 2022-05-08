@@ -23,7 +23,7 @@ public class Menu {
         this.winesAndSoft   = new LinkedList();
     }
     
-    public LinkedList getFirsts(){
+    public LinkedList<Dish> getFirsts(){
         LinkedList avaibleFirsts = new LinkedList<Dish>();
         for(Dish d: this.firsts){
             if (d.getQuantity() > 0)
@@ -32,7 +32,7 @@ public class Menu {
         return avaibleFirsts;
     }
     
-    public LinkedList getSeconds(){
+    public LinkedList<Dish> getSeconds(){
         LinkedList avaibleSeconds = new LinkedList<Dish>();
         for(Dish d: this.seconds){
             if (d.getQuantity() > 0)
@@ -41,7 +41,7 @@ public class Menu {
         return avaibleSeconds;
     }
     
-    public LinkedList getDesserts(){
+    public LinkedList<Dish> getDesserts(){
         LinkedList avaibleDesserts = new LinkedList<Dish>();
         for(Dish d: this.desserts){
             if (d.getQuantity() > 0)
@@ -50,8 +50,56 @@ public class Menu {
         return avaibleDesserts;
     }
     
-    public Dish getDish(LinkedList<Dish> l, int n){
-        return l.get(n);
+    public Dish getDish(LinkedList<Dish> l, Object o){
+        Dish w = null;
+        if(o instanceof Integer)
+            w = l.get(((Integer) o).intValue());
+        else{
+            for(Dish d: l){
+                if(o.toString().equals(d.getName())){
+                    w = d;
+                    break;
+                }
+            }            
+        }
+        return w;    
+    }
+    
+    public void addDish(Dish d){
+        if(d.getKind() == Course.FIRSTS)
+            this.firsts.add(d);
+        else if(d.getKind() == Course.SECONDS)
+            this.seconds.add(d);
+        else if(d.getKind() == Course.DESSERTS)
+            this.desserts.add(d);
+        else
+            this.winesAndSoft.add(d);
+    }
+    
+    @Override
+    public String toString(){
+        String  first = null, 
+                second = null, 
+                dessert = null, 
+                wineAndSoft = null;
+        
+        for(Dish d: getFirsts()){
+            first.concat(d.getName()+" ");
+        }
+        for(Dish d: getSeconds()){
+            second.concat(d.getName()+" ");
+        }
+        for(Dish d: getDesserts()){
+            dessert.concat(d.getName()+" ");
+        }
+        for(Dish d: winesAndSoft){
+            wineAndSoft.concat(d.getName()+" ");
+        }
+        return "Primi:\n"
+                +first+"\nSecondi:\n"
+                +second+"\nDessert:\n"
+                +dessert+"\nVini e bibite:\n"
+                +wineAndSoft;            
     }
     
 }

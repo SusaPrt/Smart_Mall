@@ -6,6 +6,7 @@ package administration;
 
 
 import java.util.LinkedList;
+import java.util.Random;
 
 /**
  *
@@ -15,11 +16,14 @@ public class Account {
     private String name;                                                        
     private double credit;                                                      
     private LinkedList payments;
+    private int personalLocker;
     
     public Account(String name, double credit){                      //builder
+        Random r = new Random();
         this.name = name;
         this.credit = credit;
         this.payments = new LinkedList<Payment>();
+        this.personalLocker = r.nextInt(1000)+1;
     }
     public Account(){};
     
@@ -49,6 +53,6 @@ public class Account {
     @Override
     public String toString(){
         return "Nome account: "+this.name+"\nCredito: "
-                +this.credit+"€"+"\nIndirizzo: ";                                
+                +this.credit+"€"+"\nArmadetto numero: "+this.personalLocker;                                
     }
 }
