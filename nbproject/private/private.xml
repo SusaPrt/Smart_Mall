@@ -1,27 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
-<<<<<<< HEAD
-    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/C:/Users/Susanna/Desktop/Mall_System/src/administration/Staff.java</file>
-            <file>file:/C:/Users/Susanna/Desktop/Mall_System/src/administration/AccountArchive.java</file>
-            <file>file:/C:/Users/Susanna/Desktop/Mall_System/src/library/IStaffLibrary.java</file>
-            <file>file:/C:/Users/Susanna/Desktop/Mall_System/src/administration/Account.java</file>
-            <file>file:/C:/Users/Susanna/Desktop/Mall_System/src/administration/Order.java</file>
-            <file>file:/C:/Users/Susanna/Desktop/Mall_System/src/library/Book.java</file>
-            <file>file:/C:/Users/Susanna/Desktop/Mall_System/src/library/Library.java</file>
-            <file>file:/C:/Users/Susanna/Desktop/Mall_System/src/administration/Item.java</file>
-            <file>file:/C:/Users/Susanna/Desktop/Mall_System/src/library/Loan.java</file>
-=======
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/39371/Desktop/SmartMall/src/restourant/Restourant.java</file>
-            <file>file:/C:/Users/39371/Desktop/SmartMall/src/restourant/Dish.java</file>
-            <file>file:/C:/Users/39371/Desktop/SmartMall/src/restourant/Course.java</file>
-            <file>file:/C:/Users/39371/Desktop/SmartMall/src/restourant/MenuOfTheDay.java</file>
-            <file>file:/C:/Users/39371/Desktop/SmartMall/src/restourant/Menu.java</file>
->>>>>>> d02d28e11ab0299cfe52ae6399f15e1244cb3d22
+            <file>file:/C:/Users/Susanna/Desktop/Mall_System/src/administration/Staff.java</file>
+            <file>file:/C:/Users/Susanna/Desktop/Mall_System/src/library/Book.java</file>
+            <file>file:/C:/Users/Susanna/Desktop/Mall_System/src/library/Library.java</file>
+            <file>file:/C:/Users/Susanna/Desktop/Mall_System/src/library/Loan.java</file>
         </group>
     </open-files>
 </project-private>

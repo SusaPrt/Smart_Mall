@@ -10,7 +10,28 @@ package administration;
  */
 public class Staff{
     
-    private String name;
-    private int    id;
+    private final String name;
+    private final int    id;
+    private String password;
     
+    public Staff(String n, String p){
+        this.name = n;
+        this.password = p;
+        this.id = (int) (Math.random() * 100000);
+    }
+    
+    public String getName(){
+        return this.name;
+    }
+    
+    public int getId(){
+        return this.id;
+    }
+    
+    public void setPassword(String p){
+        this.password = p;
+    }
+    public String getPassword(){
+        return this.password;
+    }
 }

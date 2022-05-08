@@ -13,12 +13,12 @@ import java.util.Date;
 
 public class Loan {
     
-    private Date    issueDate;
-    private Date    dueDate;
+    private Date     issueDate;
+    private Date     dueDate;
     private Account  borrower;
-    private Book    borrowedBook;
+    private Book     borrowedBook;
     
-    public Loan(Account c, Book b) {
+    public Loan(Account customer, Book book) {
         
         Calendar calendar = Calendar.getInstance();
         this.issueDate = calendar.getTime();
@@ -26,8 +26,8 @@ public class Loan {
         calendar.add(Calendar.DATE, 30);
         this.dueDate = calendar.getTime();
         
-        this.borrower = c;
-        this.borrowedBook = b;
+        this.borrower = customer;
+        this.borrowedBook = book;
     }
         
     public Date getIssueDate(){

@@ -7,32 +7,33 @@ package administration;
 
 import java.util.LinkedList;
 import java.util.Random;
+import payment.Payment;
 
-/**
- *
- * @author Mars_DB
- */
+// @author Mars_DB
+
 public class Account {
-    private String name;                                                        
+    private final String name;  
+    private String password;
+    private int personalLocker;    
     private double credit;                                                      
     private LinkedList payments;
-    private int personalLocker;
+
     
-    public Account(String name, double credit){                      //builder
+    public Account(String name, String password, double credit){                      //builder
         Random r = new Random();
         this.name = name;
+        this.password = password;
+        this.personalLocker = r.nextInt(1000)+1;
         this.credit = credit;
         this.payments = new LinkedList<Payment>();
-        this.personalLocker = r.nextInt(1000)+1;
     }
-    public Account(){};
     
     public boolean addPayment(Payment payment){                                 //inserimento pagamento
         if(payment.getCost()<= this.credit){
             this.payments.add(payment);
             this.credit-=payment.getCost();
             payment.setPayd();
-            System.out.println("Il pagamento è andato a buon fine!");
+            System.out.println("Payment successful!");
         }
         return payment.getStatus();
     }
@@ -41,10 +42,23 @@ public class Account {
         return this.name;
     }
     
+    public void setPassword(String p){
+        this.password = p;
+    }
+    public String getPassword(){
+        return this.password;
+    }
+    
+    public void setPersonalLocker(int n){
+        this.personalLocker = n;
+    }
+    public int getPersonalLocker(){
+        return this.personalLocker;
+    }
+    
     public double getCredit(){
         return this.credit;
     }
-    
     public boolean addCredit(double d){
         boolean c = false;
         this.credit += d;
@@ -52,7 +66,7 @@ public class Account {
     }
     @Override
     public String toString(){
-        return "Nome account: "+this.name+"\nCredito: "
-                +this.credit+"€"+"\nArmadetto numero: "+this.personalLocker;                                
+        return "\nName: " + this.name + "\nCredit: "
+                + this.credit + "€" + "\nLoacker n.: " + this.personalLocker;                                
     }
 }

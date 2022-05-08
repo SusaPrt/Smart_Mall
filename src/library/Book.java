@@ -6,7 +6,7 @@ package library;
 
 //@author Susanna
 
-import administration.Item;
+import payment.Item;
 
  
 public class Book extends Item {
@@ -14,12 +14,6 @@ public class Book extends Item {
     private String  author;
     private int     publishingYear;
     private Genre   genre;
-
-    //Classe statica?
-    public enum Genre {ADVENTURE, CLASSICS, COMIC, NOVEL, MYSTERY,
-                        FANTASY, HISTORY, HORROR, LITERARY, ROMANCE,
-                        SCIENCE, THRILLER, BIOGRAPHIES, POETRY;
-    };
     
     public Book(String name, double price, int q, String a, int y, Genre g){
         super(name, price, q);
