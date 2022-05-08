@@ -5,6 +5,9 @@
 package restourant;
 
 import java.util.LinkedList;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
 
 /**
  *
@@ -21,6 +24,12 @@ public class Menu {
         this.seconds        = new LinkedList();
         this.desserts       = new LinkedList();
         this.winesAndSoft   = new LinkedList();
+        
+    /*File file = new File("C:\\Users\\39371\\Desktop\\SmartMall\\pr1.txt");
+    Scanner sc = new Scanner(file);
+ 
+    while (sc.hasNextLine())
+      System.out.println(sc.nextLine());*/
     }
     
     public LinkedList<Dish> getFirsts(){

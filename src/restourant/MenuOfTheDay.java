@@ -24,7 +24,7 @@ public class MenuOfTheDay {
         this.dinner     = new LinkedList<Dish>();
         Calendar c      = Calendar.getInstance();
         this.date       = c.getTime();
-        this.menu = m;       
+        this.menu = null;       
     }
     
     private void makeDayOffer(){
