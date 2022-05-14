@@ -33,12 +33,6 @@ public class Prova {
         LinkedList second = new LinkedList<String>();
         LinkedList dessert = new LinkedList<String>();
         LinkedList winesandsoft = new LinkedList<String>();
-        LinkedList work = new LinkedList<LinkedList>();
-        
-        work.add(first);
-        work.add(second);
-        work.add(dessert);
-        work.add(winesandsoft);
         
         int i = 4;
         
@@ -48,29 +42,39 @@ public class Prova {
         while (sc.hasNextLine()){
             System.out.println(sc.nextLine());
             line = reader.readLine();
-            if(line != null)
-                work.add(line);
-        }
-        System.out.println(work.get(0).toString());
-         for(String s: data){
-            if(s == "FIRSTS" || i == 1){
-                i = 0;
-                first.add(s);
+            line = reader.readLine();
+            line = reader.readLine();
+            if(line != null){
+
+                if(line == "FIRSTS")
+                    i = 0;                           
+                else if(line == "SECONDS")
+                    i = 1;           
+                else if(line == "DESSERTS")
+                    i = 2;                       
+                else if(line == "WINESANDSOFT")
+                    i = 3;
+                       
+                if(i == 0)
+                    switch(i){
+                        case 0:
+                          first.add(line);
+                          break;
+                        case 1: 
+                            second.add(line);
+                            break;
+                        case 2:
+                            dessert.add(line);
+                            break;
+                        case 3:
+                            winesandsoft.add(line);    
+                            break;
+                        default:
+                            break;                      
+                    }
             }
-                
-            else if(s == "SECONDS" || i == 1){
-                i = 1;
-                second.add(s);
-            }
-            else if(s == "DESSERTS" || i == 2){
-                i = 2;
-                dessert.add(s);
-            }            
-            else if(s == "WINESANDSOFT" || i == 3)
-                i = 3;
-                winesandsoft.add(s);                
         }
-        
+        System.out.println(first.toString());
         
         
         
