@@ -6,19 +6,35 @@ package library;
 
 // @author Susanna
 
+import administration.Account;
+import library.Loan;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.LinkedList;
+import java.util.Map;
 
 public class Library {
     
-    private String              name;      
+    private String  name;
+    private int     loanId;  
+    
     private LinkedList<Book>    booksList;
-    //MAPPA
+    final Map<Integer, Loan>  loans;
     
     
     public Library(String n){
         this.name = n;
+        this.loanId = 0;
         this.booksList = new LinkedList();
+        this.loans = new HashMap<>();
+    }
+    
+    public Loan borrowBook(Account customer, Book book){
+        Loan l = new Loan(customer, book);
+        this.loanId += 1;
+        loans.put(loanId, l);
+        return l;
+        
     }
     
     public ArrayList<Book> searchBookByTitle(String t){
@@ -39,7 +55,7 @@ public class Library {
         return books;
     }
     
-    public ArrayList<Book> searchBookByGenre(Book.Genre g){
+    public ArrayList<Book> searchBookByGenre(Genre g){
         ArrayList<Book> books = new ArrayList();
         for(Book b : booksList){
             if(b.getGenre() == g)

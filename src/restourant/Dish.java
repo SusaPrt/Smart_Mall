@@ -4,7 +4,7 @@
  */
 package restourant;
 
-import administration.Item;
+import payment.Item;
 
 /**
  *
