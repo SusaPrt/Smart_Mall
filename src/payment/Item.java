@@ -11,10 +11,10 @@ public class Item{
     protected final double price;
     protected int quantity;
     
-    public Item(String name, double price, int q){
+    public Item(String name, double price, int quantity){
         this.name       = name;
         this.price      = price;
-        this.quantity   = q;
+        this.quantity   = quantity;
     }
     
     public String getName(){
@@ -38,6 +38,6 @@ public class Item{
     
     @Override
     public String toString(){
-        return "Oggetto: "+this.name+"\nPrezzo: "+this.price;
+        return "\nItem: "+this.name+"\nPrice: "+this.price+"\n"+"Quantity: "+this.quantity+"\n";
     }
 }

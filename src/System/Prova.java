@@ -30,13 +30,21 @@ public class Prova {
        File fileM = new File("./src/DataFolder/Menu.txt");
        DataInterpeter dM = new DataInterpeter(fileM, "Restourant");
        
-       File fileL = new File("./src/DataFolder/Libreria.txt");
+       File fileL = new File("./src/DataFolder/Library.txt");
        DataInterpeter dL = new DataInterpeter(fileL, "Library");
+       
+       File fileS = new File("./src/DataFolder/Shop.txt");
+       DataInterpeter dS = new DataInterpeter(fileL, "Shop");
 
-    /*   System.out.println("\n\n"+dM.getData().get(1));
-       System.out.println("\n\n"+dM.getData().get(2));
-       System.out.println("\n\n"+dM.getData().get(3));
-       System.out.println("\n\n"+dM.getData().get(4));*/
+       for(int i= 1; i < 5; i++ ){
+        System.out.println("\n\n"+dM.getData().get(i));
+    }
+       for(int i= 1; i < 5; i++ ){
+        System.out.println("\n\n"+dL.getData().get(i));
+    }
+       for(int i= 1; i < 5; i++ ){
+        System.out.println("\n\n"+dS.getData().get(i));
+    }
 /*
     String s = "jdhry,725";
     String[] t = s.split(",");

@@ -18,7 +18,7 @@ import restourant.Dish;
 public class DataInterpeter {
     private DataReader dR;
     private LinkedList<LinkedList> data;
-    private String listReq;                                                     // riferimento all'oggetto chiamante per tipo di oggetti da mettere in lista
+    private String listReq;                    // riferimento all'oggetto chiamante per tipo di oggetti da mettere in lista
     
     public DataInterpeter(File f, String requirer) throws FileNotFoundException{
         this.dR = new DataReader(f);
@@ -41,28 +41,28 @@ public class DataInterpeter {
             }              
         }
     } 
-     
-    
+        
     public LinkedList<LinkedList> getData(){
         return this.data;
     }
     
-    private void parseData(String s, String type, int i){
-        
+    private void parseData(String s, String type, int i){       
         String[] tokens = s.split(",");
         if(this.listReq.equals("Restourant")){           
                     this.data.get(i).add(new Dish(tokens[0], 
                             Double.parseDouble(tokens[1].replaceAll("\\D+", "")),
                             Integer.parseInt(tokens[2].replaceAll("\\D+", "")), type));
         }              
-        else if(this.listReq.equals("Library")){
-            System.out.println("\nPrima del add");
+        else if(this.listReq.equals("Library")){           
             this.data.get(i).add(new Book(tokens[0], 
                             tokens[1], Double.parseDouble(tokens[2].replaceAll("\\D+", "")),
                             Integer.parseInt(tokens[3].replaceAll("\\D+", "")), 
                             Integer.parseInt(tokens[4].replaceAll("\\D+", "")), type));
-            System.out.println("\n"+this.data.get(i));
         }
-        
+        else if(this.listReq.equals("Shop")){
+            this.data.get(i).add(new Item(tokens[0], 
+                    Double.parseDouble(tokens[2].replaceAll("\\D+", "")), 
+                    Integer.parseInt(tokens[3].replaceAll("\\D+", ""))));
+        }
     }
 }

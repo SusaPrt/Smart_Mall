@@ -25,8 +25,8 @@ public class Dish extends Item{
     
     @Override
     public String toString(){
-        return "\nPietanza: "+this.name+"\nPortata: "
-                +this.course+"\nPrezzo: "+this.price
-                +"\nQuantità: "+this.quantity;
+        return "\nDish: "+this.name+"\nCourse: "
+                +this.course+"\nPrice: "+this.price
+                +"\nQuantity: "+this.quantity+"\n";
     }
 }
