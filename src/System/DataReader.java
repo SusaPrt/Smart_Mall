@@ -26,8 +26,8 @@ public class DataReader {
         String line;
         while (sc.hasNextLine()){                        
             line = sc.nextLine();            
-            if(line != null)
-                this.rawData.add(line);
+            if(!line.equals(""))
+                this.rawData.add(line);        
         }
         return this.rawData;
     }    

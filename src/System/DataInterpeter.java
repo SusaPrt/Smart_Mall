@@ -37,7 +37,7 @@ public class DataInterpeter {
                 this.data.add(new LinkedList<Item>());
                 i++;
             }else{
-                parseData(s, type, i);
+                    parseData(s, type, i);
             }              
         }
     } 
@@ -56,10 +56,12 @@ public class DataInterpeter {
                             Integer.parseInt(tokens[2].replaceAll("\\D+", "")), type));
         }              
         else if(this.listReq.equals("Library")){
+            System.out.println("\nPrima del add");
             this.data.get(i).add(new Book(tokens[0], 
                             tokens[1], Double.parseDouble(tokens[2].replaceAll("\\D+", "")),
                             Integer.parseInt(tokens[3].replaceAll("\\D+", "")), 
                             Integer.parseInt(tokens[4].replaceAll("\\D+", "")), type));
+            System.out.println("\n"+this.data.get(i));
         }
         
     }

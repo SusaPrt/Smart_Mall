@@ -27,13 +27,16 @@ public class Prova {
      */
     public static void main(String[] args) throws IOException{
         // TODO code application logic here
-       File file = new File("./src/DataFolder/Menu.txt");
-       DataInterpeter dI = new DataInterpeter(file, "Restourant");
+       File fileM = new File("./src/DataFolder/Menu.txt");
+       DataInterpeter dM = new DataInterpeter(fileM, "Restourant");
+       
+       File fileL = new File("./src/DataFolder/Libreria.txt");
+       DataInterpeter dL = new DataInterpeter(fileL, "Library");
 
-       System.out.println("\n\n"+dI.getData().get(1));
-       System.out.println("\n\n"+dI.getData().get(2));
-       System.out.println("\n\n"+dI.getData().get(3));
-       System.out.println("\n\n"+dI.getData().get(4));
+    /*   System.out.println("\n\n"+dM.getData().get(1));
+       System.out.println("\n\n"+dM.getData().get(2));
+       System.out.println("\n\n"+dM.getData().get(3));
+       System.out.println("\n\n"+dM.getData().get(4));*/
 /*
     String s = "jdhry,725";
     String[] t = s.split(",");

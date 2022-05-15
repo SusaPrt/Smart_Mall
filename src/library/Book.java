@@ -48,6 +48,6 @@ public class Book extends Item {
     @Override
     public String toString(){
         return ("\nTitle: " + super.getName() + "\nAuthor: " + this.author +
-                "\nPublishing Year: " + this.publishingYear + "Genre: " + this.genre);
+                "\nPublishing Year: " + this.publishingYear + "\nGenre: " + this.genre+"\n");
     }
 }
