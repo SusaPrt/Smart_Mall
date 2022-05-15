@@ -6,7 +6,7 @@ package library;
 
 // @author Susanna
 
-import administration.Account;
+import administration.Costumer;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -15,10 +15,10 @@ public class Loan {
     
     private Date     issueDate;
     private Date     dueDate;
-    private Account  borrower;
+    private Costumer  borrower;
     private Book     borrowedBook;
     
-    public Loan(Account customer, Book book) {
+    public Loan(Costumer customer, Book book) {
         
         Calendar calendar = Calendar.getInstance();
         this.issueDate = calendar.getTime();
@@ -41,10 +41,10 @@ public class Loan {
         return this.dueDate;
     }
     
-    public void setBorrower(Account c){
+    public void setBorrower(Costumer c){
         this.borrower = c;
     }
-    public Account getBorrower(){
+    public Costumer getBorrower(){
         return this.borrower;
     }
     

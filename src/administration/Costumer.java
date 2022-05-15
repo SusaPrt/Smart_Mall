@@ -5,27 +5,27 @@
 package administration;
 
 
+import System.Person;
 import java.util.LinkedList;
 import java.util.Random;
 import payment.Payment;
 
 // @author Mars_DB
 
-public class Account {
-    private final String name;  
-    private String password;
-    private int personalLocker;    
-    private double credit;                                                      
-    private LinkedList payments;
+public class Costumer extends Person{
 
-    
-    public Account(String name, String password, double credit){                      //builder
+    private LinkedList<Payment> payments;
+    private final int idLocker;
+    private double credit;
+    private final AccountArchive archive;
+
+    public Costumer(String name, String password, int credit, AccountArchive archive){
+        super(name, password);  
         Random r = new Random();
-        this.name = name;
-        this.password = password;
-        this.personalLocker = r.nextInt(1000)+1;
+        this.idLocker = r.nextInt(1000)+1;
         this.credit = credit;
-        this.payments = new LinkedList<Payment>();
+        this.payments = new LinkedList();
+        this.archive = archive;
     }
     
     public boolean addPayment(Payment payment){                                 //inserimento pagamento
@@ -38,22 +38,24 @@ public class Account {
         return payment.getStatus();
     }
     
+    @Override
     public String getName(){
         return this.name;
     }
-    
-    public void setPassword(String p){
-        this.password = p;
-    }
+
+    @Override
     public String getPassword(){
         return this.password;
     }
     
-    public void setPersonalLocker(int n){
-        this.personalLocker = n;
-    }
     public int getPersonalLocker(){
-        return this.personalLocker;
+
+        return this.idLocker;
+    }
+    
+    public String getSelfInfo(String staffPassword){
+        return this.archive.getCostumerAccountInfoById(this.idLocker, this.password).toString();
+        
     }
     
     public double getCredit(){
@@ -67,6 +69,7 @@ public class Account {
     @Override
     public String toString(){
         return "\nName: " + this.name + "\nCredit: "
-                + this.credit + "€" + "\nLoacker n.: " + this.personalLocker;                                
+                + this.credit + "€" + "\nLoacker n.: " + this.idLocker;                                
     }
+
 }

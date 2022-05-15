@@ -4,34 +4,42 @@
  */
 package administration;
 
+import System.Person;
+
 /**
  *
  * @author Susanna
  */
-public class Staff{
+public class Staff extends Person{
     
-    private final String name;
-    private final int    id;
-    private String password;
+    private  String name;
+    private  String password;
+    private  int    idLocker;
+    private Handler handler;
+
     
-    public Staff(String n, String p){
-        this.name = n;
-        this.password = p;
-        this.id = (int) (Math.random() * 100000);
+    public Staff(String name, String password, Handler h){
+        super(name, password);
+        this.handler = h;
+        this.idLocker = (int) (Math.random() * 100000);
     }
     
+    @Override
     public String getName(){
         return this.name;
     }
     
-    public int getId(){
-        return this.id;
+    public int getIdLocker(){
+        return this.idLocker;
     }
     
-    public void setPassword(String p){
-        this.password = p;
-    }
+    @Override
     public String getPassword(){
         return this.password;
+    }
+    
+    public String getAccountInfo(Person p){
+        //this.handler;
+        return p.toString();
     }
 }

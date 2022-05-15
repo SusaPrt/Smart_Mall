@@ -4,50 +4,109 @@
  */
 package administration;
 
-import administration.Account;
-import java.util.ArrayList;
+
+import System.Person;
 import java.util.LinkedHashSet;
+import java.util.LinkedList;
 import java.util.List;
-import java.util.Set;
+
 
 /**
  * @author Mars_DB
  */
 public class AccountArchive {
-    public Set<Account> Accounts;
+    //  Archivi  
+    private LinkedHashSet<Costumer> costumersAccounts;
+    private LinkedHashSet<Staff> staffAccounts;
+    private LinkedHashSet<Person> totalAccounts;
     
+    // builder
     public AccountArchive(){
-        this.Accounts = new LinkedHashSet<>();
+        this.costumersAccounts  = new LinkedHashSet();
+        this.staffAccounts      = new LinkedHashSet();
+        this.totalAccounts        = new LinkedHashSet();
     }
+ 
     
-    public void getAccountInfo(String s){
-        for(Account o: this.Accounts){
-            if(o.getName().equals(s)){
-                o.toString();
-                break;
+    // lettura dati 
+    public Costumer getCostumerAccountInfoById(int id, String passwordToCheck){
+        Costumer accountFound = null;
+        
+            for(Costumer a: this.costumersAccounts){
+                if(a.getPersonalLocker() == id){
+                    if (a.getPassword().equals(passwordToCheck) || checkStaffValidation(passwordToCheck))
+                        accountFound = a;
+                }
+            }
+        
+        return accountFound;
+    }   // Costumer
+ 
+    public List<Staff> getStaffAccounts(String passwordToCheck){    
+        LinkedList<Staff> l = null;
+        if(checkStaffValidation(passwordToCheck))
+        l = (LinkedList<Staff>) staffAccounts.stream().toList();
+        return l; 
+    }               // Handler
+    
+    public List<Costumer> getCostumerAccounts(String passwordToCheck){
+        LinkedList<Costumer> l = null;
+        if(checkStaffValidation(passwordToCheck))
+            l = (LinkedList<Costumer>) costumersAccounts.stream().toList();
+        return l;       
+    }       //  Staff 
+    
+    public Staff getStaffInfoById(int id, String passwordToCheck){
+        Staff staffAccountFound = null;
+        if (checkStaffValidation(passwordToCheck)){
+            for(Staff s: this.staffAccounts){
+                if(s.getIdLocker() == id){
+                    staffAccountFound = s;
+                }
             }
         }
-    }
+        return staffAccountFound;       
+    }           //  Handler     
     
-    public boolean addAccount(Account a){
-        return this.Accounts.add(a);
-    }
+      
+    //  modifica dati
+    public boolean addCostumerAccount(Costumer a){
+        this.totalAccounts.add(a);
+        return this.costumersAccounts.add(a);
+    }                               //  costumer
+    
+    public boolean addStaffAccount(Staff s, String passwordToCheck){
+        boolean b = false;
+            if(checkStaffValidation(passwordToCheck)){
+                this.totalAccounts.add(s);
+                b = this.staffAccounts.add(s);
+            }
+        return b; 
+    }               //  Handler
 
-    public boolean removeAccount(Account a){
-        return this.Accounts.remove(a);
-    }
+    public boolean removeCostumerAccount(Costumer a, String passwordToCheck){
+        boolean b = false;
+        if(a.getPassword().equals(passwordToCheck) || checkStaffValidation(passwordToCheck))
+            b = this.costumersAccounts.remove(a);
+        return b;
+    }       // costumer
     
-    public Account getAccount(String s){
-        Account a = this.Accounts.stream().filter(o -> o.getName()
-                .equals(s))
-                .findAny()
-                .get();
-        return a;
-    }
+    public boolean removeStaffAccount(Staff s, String passwordToCheck){
+        boolean b = false;
+        if(checkStaffValidation(passwordToCheck))
+            b = this.staffAccounts.remove(s);
+        return b;
+    }           //  Handler
     
-    public List getAccounts(){
-        List l = new ArrayList<Account>();
-        this.Accounts.stream().forEach(a -> l.add(a));      
-        return l;
-    }
+    //  validazione operazione
+    private boolean checkStaffValidation(String passwordToCheck){
+            boolean b = false;
+            for(Staff s: this.staffAccounts){
+                if(s.getPassword().equals(passwordToCheck)){
+                    b = true;
+                    break;
+                }
+            }
+            return b;
+        }               //  Handler
 }

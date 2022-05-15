@@ -4,7 +4,7 @@
  */
 package payment;
 
-import administration.Account;
+import administration.Costumer;
 import java.util.LinkedList;
 
 /**
@@ -16,11 +16,11 @@ public class Order {
     private int num;                                                            //codice ordine
     private LinkedList<Item> items;                                        //mappa nome-oggetto
     private double totCost;                                                     //costo complessivo
-    private Account account;                                                    //account di riferimento
+    private Costumer account;                                                    //account di riferimento
     private boolean exed;                                                       //completato?
 
     
-    public Order(int n, Account account){                                       //builder
+    public Order(int n, Costumer account){                                       //builder
         this.num = n;
         this.items = new LinkedList();
         this.account = account;
@@ -51,7 +51,7 @@ public class Order {
         
     }
     
-    public Account getAccount(){
+    public Costumer getAccount(){
         return this.account;
     }
     

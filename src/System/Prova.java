@@ -27,13 +27,13 @@ public class Prova {
      */
     public static void main(String[] args) throws IOException{
         // TODO code application logic here
-       File fileM = new File("./src/DataFolder/Menu.txt");
+       File fileM = new File("./src/System/DataFolder/Menu.txt");
        DataInterpeter dM = new DataInterpeter(fileM, "Restourant");
        
-       File fileL = new File("./src/DataFolder/Library.txt");
+       File fileL = new File("./src/System/DataFolder/Library.txt");
        DataInterpeter dL = new DataInterpeter(fileL, "Library");
        
-       File fileS = new File("./src/DataFolder/Shop.txt");
+       File fileS = new File("./src/System/DataFolder/Shop.txt");
        DataInterpeter dS = new DataInterpeter(fileL, "Shop");
 
        for(int i= 1; i < 5; i++ ){

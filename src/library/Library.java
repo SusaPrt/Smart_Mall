@@ -6,9 +6,7 @@ package library;
 
 // @author Susanna
 
-import administration.Account;
-import library.Loan;
-import java.util.ArrayList;
+import administration.Costumer;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
@@ -18,18 +16,18 @@ public class Library {
     private String  name;
     private int     loanId;  
     
-    private LinkedList<Book>    booksList;
-    final Map<Integer, Loan>  loans;
+    private LinkedList<LinkedList>    booksList;
+    private Map<Integer, Loan>  loans;
     
     
-    public Library(String n){
-        this.name = n;
+    public Library(String s, LinkedList<LinkedList> l){
+        this.name = s;
         this.loanId = 0;
-        this.booksList = new LinkedList();
+        this.booksList = new LinkedList(l);
         this.loans = new HashMap<>();
     }
     
-    public Loan borrowBook(Account customer, Book book){
+    public Loan borrowBook(Costumer customer, Book book){
         Loan l = new Loan(customer, book);
         this.loanId += 1;
         loans.put(loanId, l);
@@ -37,29 +35,37 @@ public class Library {
         
     }
     
-    public ArrayList<Book> searchBookByTitle(String t){
-        ArrayList<Book> books = new ArrayList();
-        for(Book b : booksList){
-            if(b.getName().contains(t))
-                books.add(b);
+    public LinkedList<Book> searchBookByTitle(String t){
+        LinkedList<Book> books = new LinkedList();
+        for(LinkedList<Book> l : booksList){
+            l.stream().filter(b -> (b.getName()
+                        .contains(t)))
+                        .forEachOrdered(b -> {
+                            books.add(b);
+                        });           
         }
         return books;
     }
     
-    public ArrayList<Book> searchBookByAuthor(String a){
-        ArrayList<Book> books = new ArrayList();
-        for(Book b : booksList){
-            if(b.getAuthor().contains(a))
-                books.add(b);
+    public LinkedList<Book> searchBookByAuthor(String a){
+        LinkedList<Book> books = new LinkedList();
+        for(LinkedList<Book> l : booksList){
+            l.stream().filter(b -> (b.getAuthor()
+                        .contains(a)))
+                        .forEachOrdered(b -> {
+                            books.add(b);
+                        });        
         }
         return books;
     }
     
-    public ArrayList<Book> searchBookByGenre(String g){
-        ArrayList<Book> books = new ArrayList();
-        for(Book b : booksList){
-            if(b.equals(g))
-                books.add(b);
+    public LinkedList<Book> searchBookByGenre(String g){
+        LinkedList<Book> books = new LinkedList();
+        for(LinkedList<Book> l : booksList){
+            if(l.getFirst().getGenre().equals(g)){
+                books = l;
+                break;
+            }        
         }
         return books;
     }

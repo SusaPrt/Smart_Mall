@@ -4,7 +4,7 @@
  */
 package payment;
 
-import administration.Account;
+import administration.Costumer;
 
 /**
  *
@@ -16,7 +16,7 @@ public class Payment {
     private final Order order;                                              // identificativo pagamento
     private boolean payd;
     
-    public Payment(double cost, Order o, Account account){                                   // builder                                    
+    public Payment(double cost, Order o, Costumer account){                                   // builder                                    
         this.cost = cost;
         this.order = o;
         this.payd = account.addPayment(this);
