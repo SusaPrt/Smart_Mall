@@ -13,13 +13,13 @@ public class Book extends Item {
     
     private String  author;
     private int     publishingYear;
-    private Genre   genre;
+    private String   genre;
     
-    public Book(String name, double price, int q, String a, int y, Genre g){
-        super(name, price, q);
-        this.author = a;
-        this.publishingYear = y;
-        this.genre = g;
+    public Book(String name,  String author, double price, int quantity, int year, String genre){
+        super(name, price, quantity);
+        this.author = author;
+        this.publishingYear = year;
+        this.genre = genre;
     }
  
     
@@ -38,10 +38,10 @@ public class Book extends Item {
     }
     
     
-    public void setGenre(Genre g){
-        this.genre = g;
+    public void setGenre(String s){
+        this.genre = s;
     }
-    public Genre getGenre(){
+    public String getGenre(){
         return this.genre;
     }
     

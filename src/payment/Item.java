@@ -7,9 +7,9 @@ package payment;
 //@author Mars_DB & Susanna
  
 public class Item{
-    private final String name;
-    private final double price;
-    private int quantity;
+    protected final String name;
+    protected final double price;
+    protected int quantity;
     
     public Item(String name, double price, int q){
         this.name       = name;

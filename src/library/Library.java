@@ -55,10 +55,10 @@ public class Library {
         return books;
     }
     
-    public ArrayList<Book> searchBookByGenre(Genre g){
+    public ArrayList<Book> searchBookByGenre(String g){
         ArrayList<Book> books = new ArrayList();
         for(Book b : booksList){
-            if(b.getGenre() == g)
+            if(b.equals(g))
                 books.add(b);
         }
         return books;

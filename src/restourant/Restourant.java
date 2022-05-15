@@ -4,6 +4,10 @@
  */
 package restourant;
 
+import System.DataInterpeter;
+import java.io.File;
+import java.io.FileNotFoundException;
+
 /**
  *
  * @author Mars_DB
@@ -16,11 +20,12 @@ public class Restourant {
     private MenuOfTheDay mD;
     private Menu m;
     
-    public Restourant(int tables){
+    public Restourant(int tables, File f) throws FileNotFoundException{
         this.totTables      = tables;
         this.freeTables     = tables;
         this.totSeats       = tables*4;
-        this.m              = new Menu();
+        DataInterpeter dI = new DataInterpeter(f, this.getClass().getSimpleName());
+        this.m              = new Menu(dI.getData());
         this.mD             = new MenuOfTheDay(m);
 
     }

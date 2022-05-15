@@ -5,9 +5,6 @@
 package restourant;
 
 import java.util.LinkedList;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.Scanner;
 
 /**
  *
@@ -19,17 +16,11 @@ public class Menu {
     private final LinkedList<Dish> desserts;
     private final LinkedList<Dish> winesAndSoft;
     
-    public Menu(){
-        this.firsts         = new LinkedList();
-        this.seconds        = new LinkedList();
-        this.desserts       = new LinkedList();
-        this.winesAndSoft   = new LinkedList();
-        
-    /*File file = new File("C:\\Users\\39371\\Desktop\\SmartMall\\pr1.txt");
-    Scanner sc = new Scanner(file);
- 
-    while (sc.hasNextLine())
-      System.out.println(sc.nextLine());*/
+    public Menu(LinkedList<LinkedList> l){
+        this.firsts         = new LinkedList(l.get(1));
+        this.seconds        = new LinkedList(l.get(2));
+        this.desserts       = new LinkedList(l.get(3));
+        this.winesAndSoft   = new LinkedList(l.get(4));
     }
     
     public LinkedList<Dish> getFirsts(){
@@ -75,22 +66,22 @@ public class Menu {
     }
     
     public void addDish(Dish d){                    //codice identificativo staff che effettua operazioni
-        if(d.getKind() == Course.FIRSTS)            //lista operazioni staff come oggetto da implementare
+        if(d.getCourse().equals("FIRSTS"))            //lista operazioni staff come oggetto da implementare
             this.firsts.add(d);
-        else if(d.getKind() == Course.SECONDS)
+        else if(d.getCourse().equals("SECONDS"))
             this.seconds.add(d);
-        else if(d.getKind() == Course.DESSERTS)
+        else if(d.getCourse().equals("DESSERTS"))
             this.desserts.add(d);
         else
             this.winesAndSoft.add(d);
     }
     
     public void removeDish(Dish d){
-    if(d.getKind() == Course.FIRSTS)
+        if(d.getCourse().equals("FIRSTS")) 
             this.firsts.remove(d);
-        else if(d.getKind() == Course.SECONDS)
+        else if(d.getCourse().equals("SECONDS"))
             this.seconds.remove(d);
-        else if(d.getKind() == Course.DESSERTS)
+        else if(d.getCourse().equals("DESSERTS"))
             this.desserts.remove(d);
         else
             this.winesAndSoft.remove(d);   
@@ -121,5 +112,4 @@ public class Menu {
                 +dessert+"\nVini e bibite:\n"
                 +wineAndSoft;            
     }
-    
 }

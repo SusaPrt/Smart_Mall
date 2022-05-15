@@ -12,15 +12,21 @@ import payment.Item;
  */
 public class Dish extends Item{
 
-    private final Course kind;
+    private final String course;
     
-    public Dish(String name, double price, int q, Course k) {
+    public Dish(String name, double price, int q, String course) {
         super(name, price, q);
-        this.kind = k;
+        this.course = course;
     }
     
-    public Course getKind(){
-        return this.kind;
+    public String getCourse(){
+        return this.course;
     }
     
+    @Override
+    public String toString(){
+        return "\nPietanza: "+this.name+"\nPortata: "
+                +this.course+"\nPrezzo: "+this.price
+                +"\nQuantità: "+this.quantity;
+    }
 }
