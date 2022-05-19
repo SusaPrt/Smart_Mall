@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package payment;
+package Shop;
 
 //@author Mars_DB & Susanna
  
@@ -29,11 +29,11 @@ public class Item{
         return this.quantity;
     }
     
-    public void decreaseQuantity(){
-            this.quantity =- 1;
-    }
-    public void increaseQuantity(){
-        this.quantity =+ 1;
+    public void decreaseQuantity(int i){
+            this.quantity =- i;                 // i come parametro, per non richiamare f. 20 volte nel caso di un ordine di 20 elementi
+    }                                           // per stesso oggetto
+    public void increaseQuantity(int i){
+        this.quantity =+ i;
     }
     
     @Override

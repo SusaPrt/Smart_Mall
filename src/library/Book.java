@@ -6,7 +6,10 @@ package library;
 
 //@author Susanna
 
-import payment.Item;
+import Shop.Item;
+
+
+
 
  
 public class Book extends Item {

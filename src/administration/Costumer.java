@@ -5,10 +5,9 @@
 package administration;
 
 
-import System.Person;
 import java.util.LinkedList;
 import java.util.Random;
-import payment.Payment;
+import administration.payment.Payment;
 
 // @author Mars_DB
 

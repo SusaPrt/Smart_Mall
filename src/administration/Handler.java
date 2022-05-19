@@ -6,10 +6,8 @@ package administration;
 
 
 
-import System.Person;
+import administration.payment.Order;
 import java.util.LinkedList;
-import payment.Item;
-import payment.Order;
 
 
 /**
@@ -19,19 +17,13 @@ import payment.Order;
 public class Handler {
     
     private AccountArchive      peopleArchive;
-    private LinkedList<Order>   executedOrders;
-    private LinkedList<Order>   ordersToExecute;
-    private double              outgoings;
-    private double              profits;
-
+    private LinkedList<Order>   executedOrders;                                 // ordini evasi/pagati
+    private LinkedList<Order>   ordersToExecute;                                // ordini da pagare
     
     public Handler(){
-
         this.peopleArchive      = new AccountArchive();
         this.executedOrders     = new LinkedList();
         this.ordersToExecute    = new LinkedList();
-        this.profits            = 0;
-        this.outgoings          = 0;
     }
     
     public boolean addCustomer(Costumer a){
@@ -55,19 +47,15 @@ public class Handler {
     @Override
     public String toString(){
 
-        return "Profitti: "+this.profits
-                +"\nSpese: "+this.outgoings
-                +"\nLista ordini evasi: \n"+this.executedOrders.toString()
-                +"\nLista ordini da evadere: \n"+this.ordersToExecute.toString();
+        return "\nExecuted orders: \n"+this.executedOrders.toString()
+                +"\nOrders to execute: \n"+this.ordersToExecute.toString();
     }
       
     private boolean exeOrder(Order o){
-        boolean b = o.exeOrder();
+        boolean b = false;//o.exeOrder();
         if(b){
             this.ordersToExecute.remove(o);
             this.executedOrders.add(o);
-            this.profits += (o.getCost() - (o.getCost()*40)/100);
-            this.outgoings += ((o.getCost()*40)/100);
         }            
         return b;
     }

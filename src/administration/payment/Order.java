@@ -2,8 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package payment;
+package administration.payment;
 
+import Shop.Item;
 import administration.Costumer;
 import java.util.LinkedList;
 
@@ -12,19 +13,21 @@ import java.util.LinkedList;
  * @author Mars_DB
  */
 public class Order {
-    
-    private int num;                                                            //codice ordine
-    private LinkedList<Item> items;                                        //mappa nome-oggetto
-    private double totCost;                                                     //costo complessivo
-    private Costumer account;                                                    //account di riferimento
-    private boolean exed;                                                       //completato?
+    private OrderArchive oArchive;
+    private int orderPin;                                               //codice ordine
+    private LinkedList<Item> items;                                     // lista prodotti
+    private double totCost;                                             //costo complessivo
+    private Costumer account;                                           //account di riferimento
+
 
     
-    public Order(int n, Costumer account){                                       //builder
-        this.num = n;
+    public Order(int orderCode, Costumer account, OrderArchive oArchive){                                       //builder
+        this.orderPin = orderCode;
         this.items = new LinkedList();
         this.account = account;
-        this.exed = false;
+        this.oArchive = oArchive;
+        this.oArchive.addOrdersToExecute(this);
+
     }
     
     public void addItem(Item item){                                             //aggiunta elemento          
@@ -44,11 +47,9 @@ public class Order {
         return this.totCost;
     }
     
-    public boolean exeOrder(){                                                  //esecuzione pagamento       
-        Payment p = new Payment(this.totCost, this, this.account);        
-        this.exed = this.account.addPayment(p);        
-        return this.exed;
-        
+    public void payOrder(){                                                  //esecuzione pagamento   
+        if(this.account.addPayment(new Payment(this.totCost, this.orderPin, this.account)))
+            this.oArchive.addExecutedOrder(this);
     }
     
     public Costumer getAccount(){
@@ -57,6 +58,6 @@ public class Order {
     
     @Override
     public String toString(){
-        return "Ordine n°"+this.num+"\n"+items.toString();
+        return "Order n°"+this.orderPin+"\n"+items.toString();
     }
 }

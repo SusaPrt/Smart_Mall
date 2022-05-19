@@ -4,8 +4,6 @@
  */
 package administration;
 
-import System.Person;
-
 /**
  *
  * @author Susanna

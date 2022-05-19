@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package payment;
+package administration.payment;
 
 import administration.Costumer;
 
@@ -12,13 +12,13 @@ import administration.Costumer;
  */
 public class Payment {
     
+    private final int orderPin;
     private final double cost;                                              // costo
-    private final Order order;                                              // identificativo pagamento
     private boolean payd;
     
-    public Payment(double cost, Order o, Costumer account){                                   // builder                                    
+    public Payment(double cost, int orderPin, Costumer account){                                   // builder                                    
         this.cost = cost;
-        this.order = o;
+        this.orderPin = orderPin;
         this.payd = account.addPayment(this);
     }
 
@@ -29,8 +29,8 @@ public class Payment {
     
     @Override
     public String toString(){
-        return "Pagamento a carico di "+this.order+"\ndi "+
-                +this.cost+"€"+"\npagato: "+this.payd;
+        return "\nPayment related to Order n°"+this.orderPin+"\nof "+
+                +this.cost+"€"+"\nPayd: "+this.payd;
     }
     
     public boolean getStatus(){
