@@ -36,17 +36,7 @@ public class Costumer extends Person{
         }
         return payment.getStatus();
     }
-    
-    @Override
-    public String getName(){
-        return this.name;
-    }
-
-    @Override
-    public String getPassword(){
-        return this.password;
-    }
-    
+        
     public int getPersonalLocker(){
 
         return this.idLocker;
@@ -60,11 +50,23 @@ public class Costumer extends Person{
     public double getCredit(){
         return this.credit;
     }
+    
     public boolean addCredit(double d){
         boolean c = false;
         this.credit += d;
         return c;
     }
+    
+    @Override
+    public String getName(){
+        return this.name;
+    }
+
+    @Override
+    public String getPassword(){
+        return this.password;
+    }
+    
     @Override
     public String toString(){
         return "\nName: " + this.name + "\nCredit: "

@@ -5,6 +5,7 @@
 package administration.payment;
 
 
+import administration.Costumer;
 import java.util.LinkedList;
 
 /**
@@ -32,5 +33,25 @@ public class OrderArchive {
         this.totalOrders.add(o);
     }
     
+    public LinkedList<Order> getAccountOrders(Costumer c){
+        LinkedList<Order> l = new LinkedList();
+        this.totalOrders.stream().filter(o -> (o.getAccount()
+                                 .equals(c)))
+                                 .forEachOrdered(o -> {
+            l.add(o);
+        });
+        return l;
+    }
     
+    public LinkedList<Order> getExecutedOrders(){
+        return (LinkedList) this.executedOrders.clone();
+    }
+    
+    public LinkedList<Order> getOrdersToExecute(){
+        return (LinkedList) this.ordersToExecute.clone();
+    }
+    
+    public LinkedList<Order> getTotalOrders(){
+        return (LinkedList) this.totalOrders.clone();
+    }
 }

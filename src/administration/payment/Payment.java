@@ -13,13 +13,13 @@ import administration.Costumer;
 public class Payment {
     
     private final int orderPin;
-    private final double cost;                                              // costo
+    private final double cost;                                              
     private boolean payd;
     
-    public Payment(double cost, int orderPin, Costumer account){                                   // builder                                    
+    public Payment(double cost, int orderPin, Costumer account){                                                                   
         this.cost = cost;
         this.orderPin = orderPin;
-        this.payd = account.addPayment(this);
+        this.payd = false;
     }
 
     public double getCost() {
@@ -39,7 +39,5 @@ public class Payment {
     
     public void setPayd(){
         this.payd = true;
-    }
-    
-    
+    }    
 }
