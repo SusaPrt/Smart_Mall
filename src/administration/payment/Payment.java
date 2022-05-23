@@ -12,14 +12,14 @@ import administration.Costumer;
  */
 public class Payment {
     
-    private final int orderPin;
+    private final Cart cart;
     private final double cost;                                              
-    private boolean payd;
+    private boolean overBudget;
     
-    public Payment(double cost, int orderPin, Costumer account){                                                                   
-        this.cost = cost;
-        this.orderPin = orderPin;
-        this.payd = false;
+    public Payment(Cart cart){                                                                   
+        this.cart = cart;
+        this.overBudget = checkStatus();
+        this.cost = finallBill();
     }
 
     public double getCost() {
@@ -29,15 +29,27 @@ public class Payment {
     
     @Override
     public String toString(){
-        return "\nPayment related to Order n°"+this.orderPin+"\nof "+
-                +this.cost+"€"+"\nPayd: "+this.payd;
+        return "\nPayment related to the kind Costumer: "+this.cart.getCostumer().getName()+"\nof "+
+                +this.cost+"€"+"\nDiscount: "+!this.overBudget;
     }
     
     public boolean getStatus(){
-        return this.payd;
+        return this.overBudget;
     }
     
-    public void setPayd(){
-        this.payd = true;
-    }    
+    private boolean checkStatus(){
+        boolean b = false;
+        if(this.cart.getTotCost() > this.cart.getCostumer().getCredit())
+            b = true;
+        return b;
+    }
+    
+    private double finallBill(){
+        double d = 0.0;
+        if(this.overBudget)
+            d = this.cart.getTotCost();
+        else
+            d = this.cart.getTotCost()-(this.cart.getTotCost()*0.1);
+        return d;
+    }
 }

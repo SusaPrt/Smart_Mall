@@ -1,0 +1,50 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package administration.payment;
+
+import administration.Costumer;
+import java.util.LinkedList;
+
+/**
+ *
+ * @author Mars_DB
+ */
+public class Cart {
+    private LinkedList<Order> orderList;
+    private Costumer costumer;
+    private double check;
+    
+    public Cart(Costumer c){
+        this.costumer = c;
+        this.check = 0;
+        this.orderList = new LinkedList();
+    }
+    
+    public void addOrder(Order o){
+        this.orderList.add(o);
+    }
+    
+    public void removeOrder(Order o){
+        this.orderList.remove(o);
+    }
+    
+    public double getTotCost(){
+        double cost = 0.0;
+        cost = this.orderList.stream().map(o -> o.getCost()).reduce(cost, (accumulator, _item) -> accumulator + _item);
+        return cost;
+    }
+    
+    public Costumer getCostumer(){
+        return this.costumer;
+    }
+    
+    public String toString(){
+        String show = null;
+       for(Order o: this.orderList){
+           show.concat("\n"+o.toString());
+       }
+        return show;
+    }
+}

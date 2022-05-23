@@ -13,19 +13,16 @@ import java.util.LinkedList;
  * @author Mars_DB
  */
 public class Order {
-    private OrderArchive oArchive;
+
     private Costumer account;                                           // account di riferimento
     private LinkedList<Item> items;                                     // lista prodotti
     private int orderPin;                                               // codice ordine    
     private double totCost;                                             // costo complessivo
-    private Payment payment;
                                               
-    public Order(int orderCode, Costumer account, OrderArchive oArchive){                                       
+    public Order(int orderCode, Costumer account){                                       
         this.orderPin = orderCode;
         this.items = new LinkedList();
         this.account = account;
-        this.oArchive = oArchive;
-        this.oArchive.addOrdersToExecute(this);
     }
     
     public void addItem(Item item){                                             //aggiunta elemento          
@@ -43,12 +40,6 @@ public class Order {
         });
         
         return this.totCost;
-    }
-    
-    public void payOrder(){                                                  //esecuzione pagamento 
-        this.payment = new Payment(this.totCost, this.orderPin, this.account);
-        if(this.account.addPayment(this.payment))
-            this.oArchive.addExecutedOrder(this);
     }
     
     public Costumer getAccount(){
