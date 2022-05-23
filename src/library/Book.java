@@ -6,7 +6,7 @@ package library;
 
 //@author Susanna
 
-import System.Item;
+import administration.payment.Item;
 
 
 

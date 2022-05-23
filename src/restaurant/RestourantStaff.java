@@ -5,7 +5,7 @@
 package restourant;
 
 import administration.Handler;
-import administration.Staff;
+import userInterface.Staff;
 
 /**
  *

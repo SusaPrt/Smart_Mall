@@ -6,7 +6,7 @@ package library;
 
 // @author Susanna
 
-import administration.Costumer;
+import userInterface.Costumer;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
