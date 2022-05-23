@@ -5,7 +5,7 @@
 package library;
 
 import administration.Handler;
-import administration.Staff;
+import userInterface.Staff;
 
 /**
  *
@@ -13,6 +13,8 @@ import administration.Staff;
  */
 public class LibraryStaff extends Staff{
     private Library library;
+    
+    
     public LibraryStaff(String name, String password, Handler h, Library l) {
         super(name, password, h);
         this.library = l;        //proei
