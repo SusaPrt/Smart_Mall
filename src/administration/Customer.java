@@ -5,33 +5,36 @@
 package administration;
 
 
+import administration.payment.Cart;
 import java.util.LinkedList;
 import java.util.Random;
 import administration.payment.Payment;
 
-// @author Susanna
+// @author Mars_DB
 
-public class Costumer extends Person{
+public class Customer extends Person{
 
     private LinkedList<Payment>     payments;
     private final int               idLocker;
     private double                  credit;
     private final AccountArchive    archive;
+    private Cart                    cart;
 
-    public Costumer(String name, String password, int credit, AccountArchive archive){
+    public Customer(String name, String password, int credit, AccountArchive archive){
         super(name, password);  
         Random r =      new Random();
         this.idLocker = r.nextInt(1000)+101;
         this.credit =   credit;
         this.payments = new LinkedList();
         this.archive =  archive;
+        this.cart = new Cart(this);
     }
     
     public boolean addPayment(Payment payment){                                 //inserimento pagamento
         if(payment.getCost()<= this.credit){
             this.payments.add(payment);
             this.credit-=payment.getCost();
-            payment.setPayd();
+            //payment.setPayd();
             System.out.println("Payment successful!");
         }
         return payment.getStatus();
@@ -60,6 +63,10 @@ public class Costumer extends Person{
     @Override
     public String getPassword(){
         return super.password;
+    }
+    
+    public Cart getCart(){
+        return this.cart;
     }
     
     @Override

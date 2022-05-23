@@ -4,6 +4,8 @@
  */
 package shop;
 
+import administration.Item;
+import administration.Customer;
 import administration.Staff;
 
 /**
@@ -14,6 +16,10 @@ public class ShopStaff extends Staff{
     
     public ShopStaff(String name, String password) {
         super(name, password);
+    }
+    
+    public void sellProduct(Product p, Customer c, int i) {
+        p.decreaseQuantity(i);
     }
     
 }

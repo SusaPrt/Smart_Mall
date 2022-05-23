@@ -15,7 +15,7 @@ import java.util.List;
  */
 public class AccountArchive {
     //  Archivi  
-    private LinkedHashSet<Costumer> costumersAccounts;
+    private LinkedHashSet<Customer> costumersAccounts;
     private LinkedHashSet<Staff> staffAccounts;
     private LinkedHashSet<Person> totalAccounts;
     
@@ -28,10 +28,10 @@ public class AccountArchive {
  
     
     // lettura dati 
-    public Costumer getCostumerAccountInfoById(int id, String passwordToCheck){
-        Costumer accountFound = null;
+    public Customer getCostumerAccountInfoById(int id, String passwordToCheck){
+        Customer accountFound = null;
         
-            for(Costumer a: this.costumersAccounts){
+            for(Customer a: this.costumersAccounts){
                 if(a.getPersonalLocker() == id){
                     if (a.getPassword().equals(passwordToCheck) || checkStaffValidation(passwordToCheck))
                         accountFound = a;
@@ -39,7 +39,7 @@ public class AccountArchive {
             }
         
         return accountFound;
-    }   // Costumer
+    }   // Customer
  
     public List<Staff> getStaffAccounts(String passwordToCheck){    
         LinkedList<Staff> l = null;
@@ -48,10 +48,10 @@ public class AccountArchive {
         return l; 
     }               // Handler
     
-    public List<Costumer> getCostumerAccounts(String passwordToCheck){
-        LinkedList<Costumer> l = null;
+    public List<Customer> getCostumerAccounts(String passwordToCheck){
+        LinkedList<Customer> l = null;
         if(checkStaffValidation(passwordToCheck))
-            l = (LinkedList<Costumer>) costumersAccounts.stream().toList();
+            l = (LinkedList<Customer>) costumersAccounts.stream().toList();
         return l;       
     }       //  Staff 
     
@@ -69,7 +69,7 @@ public class AccountArchive {
     
       
     //  modifica dati
-    public boolean addCostumerAccount(Costumer a){
+    public boolean addCostumerAccount(Customer a){
         this.totalAccounts.add(a);
         return this.costumersAccounts.add(a);
     }                               //  costumer
@@ -83,7 +83,7 @@ public class AccountArchive {
         return b; 
     }               //  Handler
 
-    public boolean removeCostumerAccount(Costumer a, String passwordToCheck){
+    public boolean removeCostumerAccount(Customer a, String passwordToCheck){
         boolean b = false;
         if(a.getPassword().equals(passwordToCheck) || checkStaffValidation(passwordToCheck))
             b = this.costumersAccounts.remove(a);

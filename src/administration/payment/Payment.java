@@ -4,7 +4,7 @@
  */
 package administration.payment;
 
-import administration.Costumer;
+import administration.Customer;
 
 /**
  *

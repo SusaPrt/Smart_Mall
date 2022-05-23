@@ -4,8 +4,8 @@
  */
 package administration.payment;
 
-import Shop.Item;
-import administration.Costumer;
+import administration.Item;
+import administration.Customer;
 import java.util.LinkedList;
 
 /**
@@ -14,12 +14,12 @@ import java.util.LinkedList;
  */
 public class Order {
 
-    private Costumer account;                                           // account di riferimento
+    private Customer account;                                           // account di riferimento
     private LinkedList<Item> items;                                     // lista prodotti
     private int orderPin;                                               // codice ordine    
     private double totCost;                                             // costo complessivo
                                               
-    public Order(int orderCode, Costumer account){                                       
+    public Order(int orderCode, Customer account){                                       
         this.orderPin = orderCode;
         this.items = new LinkedList();
         this.account = account;
@@ -42,7 +42,7 @@ public class Order {
         return this.totCost;
     }
     
-    public Costumer getAccount(){
+    public Customer getAccount(){
         return this.account;
     }
     

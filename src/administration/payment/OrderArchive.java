@@ -5,7 +5,7 @@
 package administration.payment;
 
 
-import administration.Costumer;
+import administration.Customer;
 import java.util.LinkedList;
 
 /**
@@ -33,7 +33,7 @@ public class OrderArchive {
         this.totalOrders.add(o);
     }
     
-    public LinkedList<Order> getAccountOrders(Costumer c){
+    public LinkedList<Order> getAccountOrders(Customer c){
         LinkedList<Order> l = new LinkedList();
         this.totalOrders.stream().filter(o -> (o.getAccount()
                                  .equals(c)))

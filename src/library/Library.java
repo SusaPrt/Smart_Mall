@@ -6,7 +6,7 @@ package library;
 
 // @author Susanna
 
-import administration.Costumer;
+import administration.Customer;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
@@ -27,7 +27,7 @@ public class Library {
         this.loans = new HashMap<>();
     }
     
-    public Loan borrowBook(Costumer customer, Book book){
+    public Loan borrowBook(Customer customer, Book book){
         Loan l = new Loan(customer, book);
         this.loanId += 1;
         loans.put(loanId, l);
@@ -35,16 +35,17 @@ public class Library {
         
     }
     
-    public LinkedList<Book> searchBookByTitle(String t){
-        LinkedList<Book> books = new LinkedList();
+    public Book searchBookByTitle(String t){
+        Book book = null;
         for(LinkedList<Book> l : booksList){
-            l.stream().filter(b -> (b.getName()
-                        .contains(t)))
-                        .forEachOrdered(b -> {
-                            books.add(b);
-                        });           
+            for(Book work: l){
+                if(work.getName().equals(t)){
+                    book = work;
+                    break;
+                }
+            }     
         }
-        return books;
+        return book;
     }
     
     public LinkedList<Book> searchBookByAuthor(String a){
@@ -70,11 +71,25 @@ public class Library {
         return books;
     }
 
-    void addBook(Book b) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void addBook(Book b) {
+        for(LinkedList<Book> l : booksList) {
+            if(l.getFirst().getGenre().equals(b.getGenre()))
+                l.add(b);
+        }
     }
 
-    void removeBook(Book b) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void removeBook(Book b) {
+        for(LinkedList<Book> l : booksList) {
+            for(Book book : l) {
+                if(book.equals(b))
+                    l.remove(book);
+            }
+                
+            
+            
+            //l.stream().filter(book -> (book.getName()
+              //          .contains(b.getName())));
+                        
+        }
     }
 }

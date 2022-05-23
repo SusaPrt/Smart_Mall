@@ -4,6 +4,8 @@
  */
 package shop;
 
+import administration.Item;
+
 /**
  *
  * @author Susanna
@@ -12,7 +14,8 @@ public class Product extends Item {
     private String description;
     private final String size;
     
-    public Product (String d, String s) {
+    public Product (String name, double price, int quantity, String d, String s) {
+        super(name, price, quantity);
         this.description = d;
         this.size = s;
     }
