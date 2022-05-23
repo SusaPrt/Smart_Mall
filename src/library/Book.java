@@ -6,7 +6,7 @@ package library;
 
 //@author Susanna
 
-import Shop.Item;
+import System.Item;
 
 
 
