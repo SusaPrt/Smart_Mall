@@ -9,22 +9,22 @@ import java.util.LinkedList;
 import java.util.Random;
 import administration.payment.Payment;
 
-// @author Mars_DB
+// @author Susanna
 
 public class Costumer extends Person{
 
-    private LinkedList<Payment> payments;
-    private final int idLocker;
-    private double credit;
-    private final AccountArchive archive;
+    private LinkedList<Payment>     payments;
+    private final int               idLocker;
+    private double                  credit;
+    private final AccountArchive    archive;
 
     public Costumer(String name, String password, int credit, AccountArchive archive){
         super(name, password);  
-        Random r = new Random();
-        this.idLocker = r.nextInt(1000)+1;
-        this.credit = credit;
+        Random r =      new Random();
+        this.idLocker = r.nextInt(1000)+101;
+        this.credit =   credit;
         this.payments = new LinkedList();
-        this.archive = archive;
+        this.archive =  archive;
     }
     
     public boolean addPayment(Payment payment){                                 //inserimento pagamento
@@ -38,14 +38,9 @@ public class Costumer extends Person{
     }
         
     public int getPersonalLocker(){
-
         return this.idLocker;
     }
     
-    public String getSelfInfo(String staffPassword){
-        return this.archive.getCostumerAccountInfoById(this.idLocker, this.password).toString();
-        
-    }
     
     public double getCredit(){
         return this.credit;
@@ -59,18 +54,18 @@ public class Costumer extends Person{
     
     @Override
     public String getName(){
-        return this.name;
+        return super.name;
     }
 
     @Override
     public String getPassword(){
-        return this.password;
+        return super.password;
     }
     
     @Override
     public String toString(){
-        return "\nName: " + this.name + "\nCredit: "
-                + this.credit + "€" + "\nLoacker n.: " + this.idLocker;                                
+        return "\nName: " + super.name + "\nCredit: "
+                + this.credit + "€" + "\nId Loacker: " + this.idLocker;                                
     }
 
 }

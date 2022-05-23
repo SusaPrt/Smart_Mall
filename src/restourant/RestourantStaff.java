@@ -4,7 +4,6 @@
  */
 package restourant;
 
-import administration.Handler;
 import administration.Staff;
 
 /**
@@ -13,8 +12,8 @@ import administration.Staff;
  */
 public class RestourantStaff extends Staff{
     
-    public RestourantStaff(String name, String password, Handler h) {
-        super(name, password, h);
+    public RestourantStaff(String name, String password) {
+        super(name, password);
     }
     
 }
