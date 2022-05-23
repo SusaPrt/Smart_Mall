@@ -3,10 +3,21 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/Users/39371/Desktop/Smart_Mall/Smart_Mall/src/administration/payment/Order.java</file>
             <file>file:/C:/Users/39371/Desktop/Smart_Mall/Smart_Mall/src/administration/payment/Cart.java</file>
             <file>file:/C:/Users/39371/Desktop/Smart_Mall/Smart_Mall/src/administration/Costumer.java</file>
             <file>file:/C:/Users/39371/Desktop/Smart_Mall/Smart_Mall/src/administration/payment/Payment.java</file>
+=======
+            <file>file:/C:/Users/Susanna/Desktop/Mall_System/src/restourant/RestourantStaff.java</file>
+            <file>file:/C:/Users/Susanna/Desktop/Mall_System/src/shop/Item.java</file>
+            <file>file:/C:/Users/Susanna/Desktop/Mall_System/src/administration/Staff.java</file>
+            <file>file:/C:/Users/Susanna/Desktop/Mall_System/src/administration/Costumer.java</file>
+            <file>file:/C:/Users/Susanna/Desktop/Mall_System/src/administration/Person.java</file>
+            <file>file:/C:/Users/Susanna/Desktop/Mall_System/src/shop/ShopStaff.java</file>
+            <file>file:/C:/Users/Susanna/Desktop/Mall_System/src/shop/Product.java</file>
+            <file>file:/C:/Users/Susanna/Desktop/Mall_System/src/library/LibraryStaff.java</file>
+>>>>>>> 45f286968ebb27eb86377208a4d701e3e358d9eb
         </group>
     </open-files>
 </project-private>

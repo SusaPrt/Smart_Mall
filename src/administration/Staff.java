@@ -3,41 +3,33 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package administration;
+//@author Susanna
 
-/**
- *
- * @author Susanna
- */
 public class Staff extends Person{
-    
-    private  String name;
-    private  String password;
-    private  int    idLocker;
-    private Handler handler;
+    private  final int    idLocker;
 
     
-    public Staff(String name, String password, Handler h){
+    public Staff(String name, String password){
         super(name, password);
-        this.handler = h;
-        this.idLocker = (int) (Math.random() * 100000);
+        this.idLocker = (int) (Math.random() * 100);
     }
     
     @Override
     public String getName(){
-        return this.name;
+        return super.name;
+    }
+    
+    @Override
+    public String getPassword(){
+        return super.password;
     }
     
     public int getIdLocker(){
         return this.idLocker;
     }
     
-    @Override
-    public String getPassword(){
-        return this.password;
-    }
-    
-    public String getAccountInfo(Person p){
-        //this.handler;
-        return p.toString();
+     @Override
+    public String toString(){
+        return "\nName: " + super.name + "\nPassword: " + super.password + "\nId Locker: " + this.idLocker;
     }
 }

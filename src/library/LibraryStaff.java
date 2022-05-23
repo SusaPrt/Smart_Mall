@@ -4,7 +4,6 @@
  */
 package library;
 
-import administration.Handler;
 import administration.Staff;
 
 /**
@@ -13,8 +12,8 @@ import administration.Staff;
  */
 public class LibraryStaff extends Staff{
     private Library library;
-    public LibraryStaff(String name, String password, Handler h, Library l) {
-        super(name, password, h);
+    public LibraryStaff(String name, String password, Library l) {
+        super(name, password);
         this.library = l;        
     }
     

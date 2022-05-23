@@ -3,20 +3,15 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package administration;
+// @author Susanna
 
-/**
- *
- * @author Mars_DB
- */
 public class Person {
     protected  final String name;
     protected  final String password;
-    protected  final int    idLocker;
     
     public Person(String n, String p){
         this.name = n;
         this.password = p;
-        this.idLocker = (int) (Math.random() * 100000);
     }
     
     public String getName(){
@@ -25,8 +20,7 @@ public class Person {
     
     public String getPassword(){
         return this.password;
-    }
-    
+    }    
     @Override
     public String toString(){
         return "\nName: "+this.name+"\nPassword: "+this.password;
