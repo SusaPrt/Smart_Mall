@@ -2,9 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package userInterface;
-
-import administration.Handler;
+package administration;
 
 /**
  *
@@ -29,7 +27,7 @@ public class Staff extends Person{
         return this.name;
     }
     
-    public int getIdLocker(){       //kfj
+    public int getIdLocker(){
         return this.idLocker;
     }
     

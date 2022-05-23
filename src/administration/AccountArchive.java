@@ -5,9 +5,6 @@
 package administration;
 
 
-import userInterface.Person;
-import userInterface.Staff;
-import userInterface.Costumer;
 import java.util.LinkedHashSet;
 import java.util.LinkedList;
 import java.util.List;

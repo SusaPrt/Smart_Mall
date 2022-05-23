@@ -6,7 +6,7 @@ package library;
 
 //@author Susanna
 
-import administration.payment.Item;
+import Shop.Item;
 
 
 

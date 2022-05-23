@@ -6,7 +6,7 @@ package library;
 
 // @author Susanna
 
-import userInterface.Costumer;
+import administration.Costumer;
 import java.util.Calendar;
 import java.util.Date;
 

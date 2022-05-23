@@ -4,7 +4,8 @@
  */
 package administration.payment;
 
-import userInterface.Costumer;
+import Shop.Item;
+import administration.Costumer;
 import java.util.LinkedList;
 
 /**

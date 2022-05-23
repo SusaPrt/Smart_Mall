@@ -4,7 +4,7 @@
  */
 package administration.payment;
 
-import userInterface.Costumer;
+import administration.Costumer;
 
 /**
  *

@@ -5,7 +5,7 @@
 package Shop;
 
 import administration.Handler;
-import userInterface.Staff;
+import administration.Staff;
 
 /**
  *
