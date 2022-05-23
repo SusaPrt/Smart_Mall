@@ -7,6 +7,7 @@ package administration;
 
 
 import administration.payment.Order;
+import administration.payment.OrderArchive;
 import java.util.LinkedList;
 
 
@@ -17,66 +18,42 @@ import java.util.LinkedList;
 public class Handler {
     
     private AccountArchive      peopleArchive;
-    private LinkedList<Order>   executedOrders;                                 // ordini evasi/pagati
-    private LinkedList<Order>   ordersToExecute;                                // ordini da pagare
+    private OrderArchive        ordersArchive;
     
     public Handler(){
         this.peopleArchive      = new AccountArchive();
-        this.executedOrders     = new LinkedList();
-        this.ordersToExecute    = new LinkedList();
+        this.ordersArchive    = new OrderArchive();
     }
     
-    public boolean addCustomer(Costumer a){
-        boolean b = this.peopleArchive.addCostumerAccount(a);
-        toNotify(b);
-        return b;
+    public void addCustomer(Costumer a){
+        this.peopleArchive.addCostumerAccount(a);
+
     }
     
-    public boolean deleteCustomer(Costumer a, String pwd){
-        boolean b = this.peopleArchive.removeCostumerAccount(a, pwd);
-        toNotify(b);
-        return b;
+    public void deleteCustomer(Costumer a, String pwd){
+        this.peopleArchive.removeCostumerAccount(a, pwd);
     }
     
-    public boolean addOrders(Order o){
-        boolean b = this.ordersToExecute.add(o);
-        toNotify(b);
-        return exeOrder(o);
+    public void addStaff(Staff s, String password){
+        this.peopleArchive.addStaffAccount(s, password);
+    }
+    
+    public void removeStaff(Staff s, String password){
+        this.peopleArchive.removeStaffAccount(s, password);
+    }
+    
+    public void addOrders(Order o){
+        this.ordersArchive.addOrdersToExecute(o);
+    }
+    
+    public void exeOrder(Order o){
+        this.ordersArchive.addExecutedOrder(o);        
     }
     
     @Override
     public String toString(){
 
-        return "\nExecuted orders: \n"+this.executedOrders.toString()
-                +"\nOrders to execute: \n"+this.ordersToExecute.toString();
-    }
-      
-    private boolean exeOrder(Order o){
-        boolean b = false;//o.exeOrder();
-        if(b){
-            this.ordersToExecute.remove(o);
-            this.executedOrders.add(o);
-        }            
-        return b;
-    }
-    
-    private void toNotify(boolean b){
-        if(b)
-            System.out.println("L'operazione è andata a buon fine!");
-        else 
-            System.out.println("Ops! C'è stato un errore!");
-    }  
-    
-    public boolean checkIfValid(String stafReq){
-        boolean b = false;
-        
-        
-        
-        return b;
-        
-    }
-    
-    public String getAccountInfo(String password, Costumer a){
-        return a.toString();
+        return "\nAccounts: \n"+this.peopleArchive.toString()
+                +"\nOrders: \n"+this.ordersArchive.toString();
     }
 }
