@@ -15,7 +15,7 @@ public class LibraryStaff extends Staff{
     private Library library;
     public LibraryStaff(String name, String password, Handler h, Library l) {
         super(name, password, h);
-        this.library = l;        
+        this.library = l;        //proei
     }
     
     public void addBook(Book b){
