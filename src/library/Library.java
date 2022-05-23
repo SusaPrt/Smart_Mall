@@ -6,7 +6,7 @@ package library;
 
 // @author Susanna
 
-import administration.Costumer;
+import userInterface.Costumer;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
@@ -68,13 +68,5 @@ public class Library {
             }        
         }
         return books;
-    }
-
-    void addBook(Book b) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    void removeBook(Book b) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
