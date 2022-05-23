@@ -27,7 +27,7 @@ public class Staff extends Person{
         return this.name;
     }
     
-    public int getIdLocker(){
+    public int getIdLocker(){       //kfj
         return this.idLocker;
     }
     
