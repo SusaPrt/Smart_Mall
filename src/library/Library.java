@@ -69,12 +69,4 @@ public class Library {
         }
         return books;
     }
-
-    void addBook(Book b) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    void removeBook(Book b) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 }
