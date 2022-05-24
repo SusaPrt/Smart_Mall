@@ -30,7 +30,7 @@ public class LibraryStaff extends Staff{
     
     public void sellBook(Book b, Customer c, int i){
         Book book = this.library.searchBookByTitle(b.getName());
-        c.getCart().addOrder(book);
+        
         b.decreaseQuantity(i);
     }
     
