@@ -13,8 +13,8 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
 import administration.Item;
-import restaurant.Dish;
-import restaurant.Restourant;
+import Activities.restaurant.Dish;
+import Activities.restaurant.Restourant;
 
 /**
  *

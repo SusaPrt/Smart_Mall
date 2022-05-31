@@ -2,8 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package restaurant;
+package Activities.shop;
 
+import administration.Item;
 import administration.Customer;
 import administration.Staff;
 
@@ -11,14 +12,14 @@ import administration.Staff;
  *
  * @author Mars_DB
  */
-public class RestaurantStaff extends Staff{
+public class ShopStaff extends Staff{
     
-    public RestaurantStaff(String name, String password) {
+    public ShopStaff(String name, String password) {
         super(name, password);
     }
     
-    public void sellProduct(Dish d, Customer c, int i) {
-        d.decreaseQuantity(i);
+    public void sellProduct(Product p, Customer c, int i) {
+        p.decreaseQuantity(i);
     }
     
 }

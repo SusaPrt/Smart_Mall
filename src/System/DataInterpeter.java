@@ -7,9 +7,9 @@ package System;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.LinkedList;
-import library.Book;
+import Activities.library.Book;
 import administration.Item;
-import restaurant.Dish;
+import Activities.restaurant.Dish;
 
 /**
  *

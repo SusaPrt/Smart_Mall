@@ -17,9 +17,9 @@ public class Payment {
     private boolean overBudget;
     
     public Payment(Cart cart){                                                                   
-        this.cart = cart;
-        this.overBudget = checkStatus();
+        this.cart = cart;    
         this.cost = finallBill();
+        this.overBudget = checkStatus(this.cost);
     }
 
     public double getCost() {
@@ -37,9 +37,13 @@ public class Payment {
         return this.overBudget;
     }
     
-    private boolean checkStatus(){
+    public Cart getCart(){
+        return this.cart;
+    }
+    
+    private boolean checkStatus(double CostumerCredit){
         boolean b = false;
-        if(this.cart.getTotCost() > this.cart.getCostumer().getCredit())
+        if(this.cost > CostumerCredit)
             b = true;
         return b;
     }

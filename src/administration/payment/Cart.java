@@ -32,7 +32,8 @@ public class Cart {
     
     public double getTotCost(){
         double cost = 0.0;
-        cost = this.orderList.stream().map(o -> o.getCost()).reduce(cost, (accumulator, _item) -> accumulator + _item);
+        cost = this.orderList.stream().map(o -> o.getCost())
+                .reduce(cost, (accumulator, _item) -> accumulator + _item);
         return cost;
     }
     
@@ -40,8 +41,9 @@ public class Cart {
         return this.costumer;
     }
     
+    @Override
     public String toString(){
-        String show = null;
+        String show = "Order list of this cart:";
        for(Order o: this.orderList){
            show.concat("\n"+o.toString());
        }

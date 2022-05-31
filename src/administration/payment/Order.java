@@ -37,8 +37,7 @@ public class Order {
         this.totCost = 0;
         items.forEach(i -> {
             this.totCost += i.getPrice();
-        });
-        
+        });       
         return this.totCost;
     }
     
