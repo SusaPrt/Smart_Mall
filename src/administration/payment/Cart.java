@@ -4,7 +4,7 @@
  */
 package administration.payment;
 
-import administration.Costumer;
+import administration.Customer;
 import java.util.LinkedList;
 
 /**
@@ -13,10 +13,10 @@ import java.util.LinkedList;
  */
 public class Cart {
     private LinkedList<Order> orderList;
-    private Costumer costumer;
+    private Customer costumer;
     private double check;
     
-    public Cart(Costumer c){
+    public Cart(Customer c){
         this.costumer = c;
         this.check = 0;
         this.orderList = new LinkedList();
@@ -36,7 +36,7 @@ public class Cart {
         return cost;
     }
     
-    public Costumer getCostumer(){
+    public Customer getCostumer(){
         return this.costumer;
     }
     

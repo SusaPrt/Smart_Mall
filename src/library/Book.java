@@ -6,7 +6,7 @@ package library;
 
 //@author Susanna
 
-import shop.Item;
+import administration.Item;
  
 public class Book extends Item {
     

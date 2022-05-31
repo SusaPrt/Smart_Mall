@@ -8,8 +8,8 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.LinkedList;
 import library.Book;
-import shop.Item;
-import restourant.Dish;
+import administration.Item;
+import restaurant.Dish;
 
 /**
  *
